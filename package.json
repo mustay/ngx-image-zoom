@@ -1,5 +1,5 @@
 {
-    "name": "ngx-image-zoom",
+    "name": "@mustay/ngx-image-zoom",
     "version": "0.3.1",
     "scripts": {
         "build": "gulp build",
@@ -13,11 +13,11 @@
         "playground:build": "tsc -p playground -w",
         "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
         "test": "tsc && karma start",
-        "release": "npm run build && npm publish dist/"
+        "release": "npm run build && npm publish dist/ --access=public"
     },
     "repository": {
         "type": "git",
-        "url": "https://www.github.com/wittlock/ngx-image-zoom"
+        "url": "https://github.com/mustay/ngx-image-zoom"
     },
     "author": {
         "name": "Mathias Wittlock",
@@ -30,7 +30,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://www.github.com/wittlock/ngx-image-zoom/issues"
+        "url": "https://github.com/mustay/ngx-image-zoom"
     },
     "devDependencies": {
         "@angular/common": "^5.0.0",
