@@ -33,6 +33,28 @@ var NgxImageZoomComponent = (function () {
         this.thumbImageLoaded = false;
         this.fullImageLoaded = false;
     }
+    Object.defineProperty(NgxImageZoomComponent.prototype, "setThumbWidth", {
+        set: /**
+         * @param {?} thumbWidth
+         * @return {?}
+         */
+        function (thumbWidth) {
+            this.thumbWidth = thumbWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NgxImageZoomComponent.prototype, "setFullWidth", {
+        set: /**
+         * @param {?} fullWidth
+         * @return {?}
+         */
+        function (fullWidth) {
+            this.fullWidth = fullWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(NgxImageZoomComponent.prototype, "setThumbImage", {
         set: /**
          * @param {?} thumbImage
@@ -619,6 +641,8 @@ var NgxImageZoomComponent = (function () {
         "fullSizeImage": [{ type: core.ViewChild, args: ['fullSizeImage',] },],
         "onZoomScroll": [{ type: core.Output },],
         "onZoomPosition": [{ type: core.Output },],
+        "setThumbWidth": [{ type: core.Input, args: ['thumbWidth',] },],
+        "setFullWidth": [{ type: core.Input, args: ['fullWidth',] },],
         "setThumbImage": [{ type: core.Input, args: ['thumbImage',] },],
         "setFullImage": [{ type: core.Input, args: ['fullImage',] },],
         "setZoomMode": [{ type: core.Input, args: ['zoomMode',] },],

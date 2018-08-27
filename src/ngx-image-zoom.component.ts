@@ -67,6 +67,16 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     constructor(private renderer: Renderer2) {
     }
 
+    @Input('thumbWidth')
+    public set setThumbWidth(thumbWidth: number) {
+        this.thumbWidth = thumbWidth;
+    }
+
+    @Input('fullWidth')
+    public set setFullWidth(fullWidth: number) {
+        this.fullWidth = fullWidth;
+    }
+
     @Input('thumbImage')
     public set setThumbImage(thumbImage: string) {
         this.thumbImageLoaded = false;
