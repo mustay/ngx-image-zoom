@@ -577,7 +577,8 @@ var NgxImageZoomComponent = (function () {
      * @return {?}
      */
     function () {
-        this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        // this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        this.thumbWidth = 100;
         this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
         if (!this.enableLens) {
@@ -600,7 +601,8 @@ var NgxImageZoomComponent = (function () {
             this.fullImage = this.thumbImage;
         }
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            // this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullWidth = 100;
             this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
             this.baseRatio = Math.max((this.thumbWidth / this.fullWidth), (this.thumbHeight / this.fullHeight));
             // Don't allow zooming to smaller than thumbnail size

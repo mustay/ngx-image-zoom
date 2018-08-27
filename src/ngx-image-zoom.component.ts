@@ -382,7 +382,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     }
 
     private calculateRatioAndOffset() {
-        this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        // this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        this.thumbWidth = 100;
         this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
 
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
@@ -409,7 +410,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
 
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            // this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullWidth = 100;
             this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
 
             this.baseRatio = Math.max(
