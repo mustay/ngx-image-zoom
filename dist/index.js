@@ -600,8 +600,8 @@ var NgxImageZoomComponent = (function () {
             this.fullImage = this.thumbImage;
         }
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
-            this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
+            this.fullWidth = this.imageThumbnail.nativeElement.naturalWidth;
+            this.fullHeight = this.imageThumbnail.nativeElement.naturalHeight;
             this.baseRatio = Math.max((this.thumbWidth / this.fullWidth), (this.thumbHeight / this.fullHeight));
             // Don't allow zooming to smaller than thumbnail size
             this.minZoomRatio = Math.max(this.minZoomRatio || 0, this.baseRatio || 0);
@@ -615,10 +615,8 @@ var NgxImageZoomComponent = (function () {
      * @return {?}
      */
     function () {
-        // this.magnifiedWidth = (this.fullWidth * this.magnification);
-        // this.magnifiedHeight = (this.fullHeight * this.magnification);
-        this.magnifiedWidth = this.fullWidth;
-        this.magnifiedHeight = this.fullHeight;
+        this.magnifiedWidth = (this.fullWidth * this.magnification);
+        this.magnifiedHeight = (this.fullHeight * this.magnification);
         this.xRatio = (this.magnifiedWidth - this.thumbWidth) / this.thumbWidth;
         this.yRatio = (this.magnifiedHeight - this.thumbHeight) / this.thumbHeight;
     };
