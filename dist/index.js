@@ -615,8 +615,8 @@ var NgxImageZoomComponent = (function () {
      * @return {?}
      */
     function () {
-        this.magnifiedWidth = (this.fullWidth * this.magnification);
-        this.magnifiedHeight = (this.fullHeight * this.magnification);
+        this.magnifiedWidth = ((this.fullWidth / 2) * this.magnification);
+        this.magnifiedHeight = ((this.fullHeight / 2) * this.magnification);
         this.xRatio = (this.magnifiedWidth - this.thumbWidth) / this.thumbWidth;
         this.yRatio = (this.magnifiedHeight - this.thumbHeight) / this.thumbHeight;
     };
