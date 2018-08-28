@@ -424,8 +424,11 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     }
 
     private calculateRatio() {
-        this.magnifiedWidth = (this.fullWidth * this.magnification);
-        this.magnifiedHeight = (this.fullHeight * this.magnification);
+        // this.magnifiedWidth = (this.fullWidth * this.magnification);
+        // this.magnifiedHeight = (this.fullHeight * this.magnification);
+
+        this.magnifiedWidth = this.fullWidth;
+        this.magnifiedHeight = this.fullHeight;
 
         this.xRatio = (this.magnifiedWidth - this.thumbWidth) / this.thumbWidth;
         this.yRatio = (this.magnifiedHeight - this.thumbHeight) / this.thumbHeight;
