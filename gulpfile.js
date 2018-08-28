@@ -9,7 +9,7 @@ var gulp = require('gulp'),
   inlineResources = require('./tools/gulp/inline-resources');
 
 const rootFolder = path.join(__dirname);
-const srcFolder = path.join(rootFolder, 'src');
+const srcFolder = path.join(rootFolder, './src');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
