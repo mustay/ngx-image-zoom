@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": "node_modules/@mustay/ngx-image-zoom",
         "experimentalDecorators": true,
         "moduleResolution": "node",
-        "rootDir": "./src",
+        "rootDir": "./",
         "target": "es5",
         "lib": [
             "es2015",
