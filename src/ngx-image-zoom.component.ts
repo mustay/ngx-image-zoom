@@ -409,8 +409,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
 
         if (this.fullImageLoaded) {
-            this.fullWidth = this.imageThumbnail.nativeElement.naturalWidth;
-            this.fullHeight = this.imageThumbnail.nativeElement.naturalHeight;
+            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
 
             this.baseRatio = Math.max(
                 (this.thumbWidth / this.fullWidth),
