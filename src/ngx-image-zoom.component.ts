@@ -405,8 +405,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
 
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.clientWidth;
-            this.fullHeight = this.fullSizeImage.nativeElement.clientHeight;
+            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
 
             console.log('full', this.fullWidth, this.fullHeight);
 

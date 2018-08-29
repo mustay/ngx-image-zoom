@@ -585,8 +585,8 @@ var NgxImageZoomComponent = (function () {
             this.fullImage = this.thumbImage;
         }
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.clientWidth;
-            this.fullHeight = this.fullSizeImage.nativeElement.clientHeight;
+            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
             console.log('full', this.fullWidth, this.fullHeight);
             this.baseRatio = Math.max((this.thumbWidth / this.fullWidth), (this.thumbHeight / this.fullHeight));
             // Don't allow zooming to smaller than thumbnail size
