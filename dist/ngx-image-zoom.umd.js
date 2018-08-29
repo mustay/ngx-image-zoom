@@ -561,8 +561,8 @@ var NgxImageZoomComponent = (function () {
      * @return {?}
      */
     function () {
-        this.thumbWidth = this.imageThumbnail.nativeElement.clientWidth;
-        this.thumbHeight = this.imageThumbnail.nativeElement.clientHeight;
+        this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
         console.log('thumb', this.thumbWidth, this.thumbHeight);
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
         if (!this.enableLens) {
