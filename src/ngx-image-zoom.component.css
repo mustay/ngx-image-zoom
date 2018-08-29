@@ -6,7 +6,7 @@
 
 .ngxImageZoomFull {
     position: absolute;
-    height: auto;
+    /* height: auto; */
     display: none;
 }
 
