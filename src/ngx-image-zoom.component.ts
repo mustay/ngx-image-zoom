@@ -376,8 +376,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     }
 
     private calculateRatioAndOffset() {
-        this.thumbWidth = this.imageThumbnail.nativeElement.offsetWidth;
-        this.thumbHeight = this.imageThumbnail.nativeElement.offsetHeight;
+        this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
 
         console.log('thumbz', this.thumbWidth, this.thumbHeight);
 
@@ -405,8 +405,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
 
         if (this.fullImageLoaded) {
-            this.fullWidth = this.fullSizeImage.nativeElement.offsetWidth;
-            this.fullHeight = this.fullSizeImage.nativeElement.offsetHeight;
+            this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
+            this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
 
             console.log('full', this.fullWidth, this.fullHeight);
 
