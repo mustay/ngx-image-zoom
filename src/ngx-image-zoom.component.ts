@@ -216,6 +216,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
             x: this.latestMouseLeft,
             y: this.latestMouseTop
         };
+
+        console.log('CORDS', c.x, 'Y', c.y);
         this.onZoomPosition.emit(c);
     }
 
@@ -345,7 +347,9 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         let scrollTopOffset = 0;
         if (this.scrollParent !== null) {
             scrollLeftOffset = this.scrollParent.scrollLeft;
+            console.log('scrollparent left', this.scrollParent.scrollLeft);
             scrollTopOffset = this.scrollParent.scrollTop;
+            console.log('scrollparent top', this.scrollParent.scrollTop);
         }
 
         const left = (event.pageX - this.offsetLeft + scrollLeftOffset);
@@ -364,11 +368,15 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
         if (this.enableLens) {
             lensLeftMod = this.lensLeft = this.latestMouseLeft - this.lensWidth / 2;
+            console.log('lens left mod', lensLeftMod);
             lensTopMod = this.lensTop = this.latestMouseTop - this.lensHeight / 2;
+            console.log('lens top mod', lensTopMod);
         }
 
         this.fullImageLeft = (this.latestMouseLeft * -this.xRatio) - lensLeftMod;
+        console.log('full image left', this.fullImageLeft);
         this.fullImageTop = (this.latestMouseTop * -this.yRatio) - lensTopMod;
+        console.log('fullimage top ', this.fullImageTop);
     }
 
     private calculateRatioAndOffset() {
@@ -415,9 +423,16 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
     private calculateRatio() {
         this.magnifiedWidth = (this.fullWidth * this.magnification);
+        console.log('magnified width', this.magnifiedWidth);
         this.magnifiedHeight = (this.fullHeight * this.magnification);
+        console.log('magnified height', this.magnifiedHeight);
+
 
         this.xRatio = (this.magnifiedWidth - this.thumbWidth) / this.thumbWidth;
+        console.log('x ratio', this.xRatio);
+
         this.yRatio = (this.magnifiedHeight - this.thumbHeight) / this.thumbHeight;
+        console.log('y ratio', this.yRatio);
+
     }
 }
