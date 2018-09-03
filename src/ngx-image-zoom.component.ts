@@ -377,7 +377,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
     private calculateRatioAndOffset() {
         this.thumbWidth = this.imageThumbnail.nativeElement.clientWidth;
-        this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
+        this.thumbHeight = this.imageThumbnail.nativeElement.clientHeight;
 
         console.log('thumbz', this.thumbWidth, this.thumbHeight);
 
