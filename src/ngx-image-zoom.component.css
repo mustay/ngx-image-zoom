@@ -42,7 +42,7 @@
     max-width: none;
     max-height: none;
     display: none;
-    cursor: zoom-in;
+    cursor: zoom-out;
 }
 
 .ngxImageZoomFullContainer {
