@@ -14,7 +14,7 @@
          [style.height.px]="this.lensHeight"
          [style.border-radius.px]="this.lensBorderRadius"
     >
-        <img #fullSizeImage class="ngxImageZoomFull" src="{{ thumbImage }}"
+        <img #fullSizeImage class="ngxImageZoomFull" src="{{ fullImage }}"
              (load)="onFullImageLoaded()"
              [style.display]="this.display"
              [style.top.px]="this.fullImageTop"
