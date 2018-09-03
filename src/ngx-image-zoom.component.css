@@ -46,6 +46,6 @@
 }
 
 .ngxImageZoomFullContainer.ngxImageZoomLensEnabled {
-    border: 2px solid red;
-    cursor: crosshair;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: zoom-in;
 }

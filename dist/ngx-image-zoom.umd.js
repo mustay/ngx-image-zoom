@@ -305,7 +305,6 @@ var NgxImageZoomComponent = (function () {
             x: this.latestMouseLeft,
             y: this.latestMouseTop
         };
-        console.log('CORDS', c.x, 'Y', c.y);
         this.onZoomPosition.emit(c);
     };
     /**
@@ -528,9 +527,7 @@ var NgxImageZoomComponent = (function () {
         var /** @type {?} */ scrollTopOffset = 0;
         if (this.scrollParent !== null) {
             scrollLeftOffset = this.scrollParent.scrollLeft;
-            console.log('scrollparent left', this.scrollParent.scrollLeft);
             scrollTopOffset = this.scrollParent.scrollTop;
-            console.log('scrollparent top', this.scrollParent.scrollTop);
         }
         var /** @type {?} */ left = (event.pageX - this.offsetLeft + scrollLeftOffset);
         var /** @type {?} */ top = (event.pageY - this.offsetTop + scrollTopOffset);
@@ -563,7 +560,6 @@ var NgxImageZoomComponent = (function () {
     function () {
         this.thumbWidth = this.imageThumbnail.nativeElement.clientWidth;
         this.thumbHeight = this.imageThumbnail.nativeElement.clientHeight;
-        console.log('thumbz', this.thumbWidth, this.thumbHeight);
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
         if (!this.enableLens) {
             this.lensWidth = this.thumbWidth;
@@ -587,7 +583,6 @@ var NgxImageZoomComponent = (function () {
         if (this.fullImageLoaded) {
             this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
             this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
-            console.log('full', this.fullWidth, this.fullHeight);
             this.baseRatio = Math.max((this.thumbWidth / this.fullWidth), (this.thumbHeight / this.fullHeight));
             // Don't allow zooming to smaller than thumbnail size
             this.minZoomRatio = Math.max(this.minZoomRatio || 0, this.baseRatio || 0);
@@ -611,7 +606,7 @@ var NgxImageZoomComponent = (function () {
         { type: core.Component, args: [{
                     selector: 'ngx-image-zoom',
                     template: "<div #zoomContainer class=\"ngxImageZoomContainer\" [style.width.px]=\"this.thumbWidth\"> <!-- <div #zoomContainer class=\"ngxImageZoomContainer\" width=\"100%\" height=\"100%\"> --> <img #imageThumbnail class=\"ngxImageZoomThumbnail\" src=\"{{ thumbImage }}\" width=\"100%\" height=\"100%\" (load)=\"onThumbImageLoaded()\"/> <div [ngClass]=\"{'ngxImageZoomFullContainer': true, 'ngxImageZoomLensEnabled': this.enableLens}\" [style.display]=\"this.display\" [style.top.px]=\"this.lensTop\" [style.left.px]=\"this.lensLeft\" [style.width.px]=\"this.lensWidth\" [style.height.px]=\"this.lensHeight\" [style.border-radius.px]=\"this.lensBorderRadius\" > <img #fullSizeImage class=\"ngxImageZoomFull\" src=\"{{ fullImage }}\" (load)=\"onFullImageLoaded()\" [style.display]=\"this.display\" [style.top.px]=\"this.fullImageTop\" [style.left.px]=\"this.fullImageLeft\" [style.width.px]=\"this.magnifiedWidth\" [style.height.px]=\"this.magnifiedHeight\" /> </div> </div>",
-                    styles: ["/* .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; } .ngxImageZoomFull { position: absolute; height: auto; display: none; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 2px solid black; cursor: crosshair; } .ngxImageZoomThumbnail { height: auto; width: 100%; } */ .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; display: block; height: auto; } .ngxImageZoomFull { position: absolute; max-width: none; max-height: none; display: none; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 2px solid red; cursor: crosshair; }"]
+                    styles: ["/* .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; } .ngxImageZoomFull { position: absolute; height: auto; display: none; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 2px solid black; cursor: crosshair; } .ngxImageZoomThumbnail { height: auto; width: 100%; } */ .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; display: block; height: auto; } .ngxImageZoomFull { position: absolute; max-width: none; max-height: none; display: none; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 1px solid rgb(255, 255, 255); cursor: zoom-in; }"]
                 },] },
     ];
     /** @nocollapse */

@@ -217,7 +217,6 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
             y: this.latestMouseTop
         };
 
-        console.log('CORDS', c.x, 'Y', c.y);
         this.onZoomPosition.emit(c);
     }
 
@@ -347,9 +346,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         let scrollTopOffset = 0;
         if (this.scrollParent !== null) {
             scrollLeftOffset = this.scrollParent.scrollLeft;
-            console.log('scrollparent left', this.scrollParent.scrollLeft);
             scrollTopOffset = this.scrollParent.scrollTop;
-            console.log('scrollparent top', this.scrollParent.scrollTop);
         }
 
         const left = (event.pageX - this.offsetLeft + scrollLeftOffset);
@@ -379,8 +376,6 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         this.thumbWidth = this.imageThumbnail.nativeElement.clientWidth;
         this.thumbHeight = this.imageThumbnail.nativeElement.clientHeight;
 
-        console.log('thumbz', this.thumbWidth, this.thumbHeight);
-
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
         if (!this.enableLens) {
             this.lensWidth = this.thumbWidth;
@@ -407,8 +402,6 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         if (this.fullImageLoaded) {
             this.fullWidth = this.fullSizeImage.nativeElement.naturalWidth;
             this.fullHeight = this.fullSizeImage.nativeElement.naturalHeight;
-
-            console.log('full', this.fullWidth, this.fullHeight);
 
             this.baseRatio = Math.max(
                 (this.thumbWidth / this.fullWidth),
