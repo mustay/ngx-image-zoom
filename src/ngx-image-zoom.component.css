@@ -30,6 +30,7 @@
     margin: auto;
     overflow: hidden;
     display: block;
+    height: auto;
 }
 
 .ngxImageZoomFull {
