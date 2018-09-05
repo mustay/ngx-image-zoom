@@ -159,9 +159,11 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
         if (this.enableScrollZoom) {
             // Chrome: 'mousewheel', Firefox: 'DOMMouseScroll', IE: 'onmousewheel'
-            this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', (event) => this.onMouseWheel(event));
-            this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', (event) => this.onMouseWheel(event));
-            this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', (event) => this.onMouseWheel(event));
+            if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
+                this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', (event) => this.onMouseWheel(event));
+                this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', (event) => this.onMouseWheel(event));
+                this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', (event) => this.onMouseWheel(event));
+            }
         }
         if (this.enableLens && this.circularLens) {
             this.lensBorderRadius = this.lensWidth / 2;

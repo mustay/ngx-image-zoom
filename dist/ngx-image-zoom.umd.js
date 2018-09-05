@@ -213,9 +213,11 @@ var NgxImageZoomComponent = (function () {
         }
         if (this.enableScrollZoom) {
             // Chrome: 'mousewheel', Firefox: 'DOMMouseScroll', IE: 'onmousewheel'
-            this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', function (event) { return _this.onMouseWheel(event); });
-            this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', function (event) { return _this.onMouseWheel(event); });
-            this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', function (event) { return _this.onMouseWheel(event); });
+            if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
+                this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', function (event) { return _this.onMouseWheel(event); });
+                this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', function (event) { return _this.onMouseWheel(event); });
+                this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', function (event) { return _this.onMouseWheel(event); });
+            }
         }
         if (this.enableLens && this.circularLens) {
             this.lensBorderRadius = this.lensWidth / 2;
