@@ -33,6 +33,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
     public thumbImage: string;
     public fullImage: string;
+    public zoomIcons = false;
     public thumbWidth: number;
     public thumbHeight: number;
     public fullWidth: number;
@@ -59,7 +60,6 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     private isReady = false;
     private thumbImageLoaded = false;
     private fullImageLoaded = false;
-    private zoomIcons = false;
 
     private latestMouseLeft: number;
     private latestMouseTop: number;

@@ -22,6 +22,7 @@ export declare class NgxImageZoomComponent implements OnInit, OnChanges, AfterVi
     lensBorderRadius: number;
     thumbImage: string;
     fullImage: string;
+    zoomIcons: boolean;
     thumbWidth: number;
     thumbHeight: number;
     fullWidth: number;
@@ -46,7 +47,6 @@ export declare class NgxImageZoomComponent implements OnInit, OnChanges, AfterVi
     private isReady;
     private thumbImageLoaded;
     private fullImageLoaded;
-    private zoomIcons;
     private latestMouseLeft;
     private latestMouseTop;
     private scrollParent;

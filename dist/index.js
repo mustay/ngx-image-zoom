@@ -16,6 +16,7 @@ var NgxImageZoomComponent = (function () {
         this.onZoomPosition = new EventEmitter();
         this.enableLens = false;
         this.lensBorderRadius = 0;
+        this.zoomIcons = false;
         this.lensWidth = 100;
         this.lensHeight = 100;
         this.zoomMode = 'hover';
@@ -29,7 +30,6 @@ var NgxImageZoomComponent = (function () {
         this.isReady = false;
         this.thumbImageLoaded = false;
         this.fullImageLoaded = false;
-        this.zoomIcons = false;
     }
     Object.defineProperty(NgxImageZoomComponent.prototype, "setThumbImage", {
         set: /**
