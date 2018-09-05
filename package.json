@@ -76,6 +76,5 @@
         "node": ">=6.0.0"
     },
     "dependencies": {
-        "ngx-pinch-zoom": "^1.2.0"
     }
 }

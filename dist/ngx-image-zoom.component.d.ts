@@ -47,12 +47,10 @@ export declare class NgxImageZoomComponent implements OnInit, OnChanges, AfterVi
     private thumbImageLoaded;
     private fullImageLoaded;
     private zoomIcons;
-    private screenSize;
     private latestMouseLeft;
     private latestMouseTop;
     private scrollParent;
     constructor(renderer: Renderer2);
-    setScreenSize: string;
     setThumbImage: string;
     setFullImage: string;
     setZoomMode: string;

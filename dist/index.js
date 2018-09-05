@@ -30,19 +30,7 @@ var NgxImageZoomComponent = (function () {
         this.thumbImageLoaded = false;
         this.fullImageLoaded = false;
         this.zoomIcons = false;
-        this.screenSize = 'desktop';
     }
-    Object.defineProperty(NgxImageZoomComponent.prototype, "setScreenSize", {
-        set: /**
-         * @param {?} screenSize
-         * @return {?}
-         */
-        function (screenSize) {
-            this.screenSize = screenSize;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(NgxImageZoomComponent.prototype, "setThumbImage", {
         set: /**
          * @param {?} thumbImage
@@ -623,7 +611,7 @@ var NgxImageZoomComponent = (function () {
     NgxImageZoomComponent.decorators = [
         { type: Component, args: [{
                     selector: 'ngx-image-zoom',
-                    template: "<div #zoomContainer class=\"ngxImageZoomContainer\" [style.width.px]=\"this.thumbWidth\"> <!-- <div #zoomContainer class=\"ngxImageZoomContainer\" width=\"100%\" height=\"100%\"> --> <ng-container *ngIf=\"screenSize === 'mobile'\"> <pinch-zoom> <img src=\"{{ thumbImage }}\"> </pinch-zoom> </ng-container> <ng-container *ngIf=\"screenSize === 'desktop'\"> <img #imageThumbnail [ngClass]=\"{ 'ngxImageZoomThumbnail--hover': zoomIcons === false }\" class=\"ngxImageZoomThumbnail\" src=\"{{ thumbImage }}\"  width=\"100%\"  height=\"100%\" (load)=\"onThumbImageLoaded()\"/> <div [ngClass]=\"{ 'ngxImageZoomFullContainer': true,  'ngxImageZoomLensEnabled': this.enableLens }\" [style.display]=\"this.display\" [style.top.px]=\"this.lensTop\" [style.left.px]=\"this.lensLeft\" [style.width.px]=\"this.lensWidth\" [style.height.px]=\"this.lensHeight\" [style.border-radius.px]=\"this.lensBorderRadius\" > <img #fullSizeImage [ngClass]=\"{ 'ngxImageZoomFull--hover': zoomIcons === false }\" class=\"ngxImageZoomFull\"  src=\"{{ fullImage }}\" (load)=\"onFullImageLoaded()\" [style.display]=\"this.display\" [style.top.px]=\"this.fullImageTop\" [style.left.px]=\"this.fullImageLeft\" [style.width.px]=\"this.magnifiedWidth\" [style.height.px]=\"this.magnifiedHeight\" /> </div> </ng-container> </div>",
+                    template: "<div #zoomContainer class=\"ngxImageZoomContainer\" [style.width.px]=\"this.thumbWidth\"> <!-- <div #zoomContainer class=\"ngxImageZoomContainer\" width=\"100%\" height=\"100%\"> --> <img #imageThumbnail [ngClass]=\"{ 'ngxImageZoomThumbnail--hover': zoomIcons === false }\" class=\"ngxImageZoomThumbnail\" src=\"{{ thumbImage }}\"  width=\"100%\"  height=\"100%\" (load)=\"onThumbImageLoaded()\"/> <div [ngClass]=\"{ 'ngxImageZoomFullContainer': true,  'ngxImageZoomLensEnabled': this.enableLens }\" [style.display]=\"this.display\" [style.top.px]=\"this.lensTop\" [style.left.px]=\"this.lensLeft\" [style.width.px]=\"this.lensWidth\" [style.height.px]=\"this.lensHeight\" [style.border-radius.px]=\"this.lensBorderRadius\" > <img #fullSizeImage [ngClass]=\"{ 'ngxImageZoomFull--hover': zoomIcons === false }\" class=\"ngxImageZoomFull\"  src=\"{{ fullImage }}\" (load)=\"onFullImageLoaded()\" [style.display]=\"this.display\" [style.top.px]=\"this.fullImageTop\" [style.left.px]=\"this.fullImageLeft\" [style.width.px]=\"this.magnifiedWidth\" [style.height.px]=\"this.magnifiedHeight\" /> </div> </div>",
                     styles: ["/* .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; } .ngxImageZoomFull { position: absolute; height: auto; display: none; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 2px solid black; cursor: crosshair; } .ngxImageZoomThumbnail { height: auto; width: 100%; } */ .ngxImageZoomContainer { position: relative; margin: auto; overflow: hidden; display: block; height: auto; } .ngxImageZoomThumbnail { cursor: zoom-in!important; } .ngxImageZoomThumbnail--hover { cursor: default; } .ngxImageZoomFull { position: absolute; max-width: none; max-height: none; display: none; cursor: zoom-out; } .ngxImageZoomFull--hover { cursor: default; } .ngxImageZoomFullContainer { position: absolute; overflow: hidden; } .ngxImageZoomFullContainer.ngxImageZoomLensEnabled { border: 1px solid rgb(255, 255, 255); }"]
                 },] },
     ];
@@ -637,7 +625,6 @@ var NgxImageZoomComponent = (function () {
         "fullSizeImage": [{ type: ViewChild, args: ['fullSizeImage',] },],
         "onZoomScroll": [{ type: Output },],
         "onZoomPosition": [{ type: Output },],
-        "setScreenSize": [{ type: Input, args: ['screenSize',] },],
         "setThumbImage": [{ type: Input, args: ['thumbImage',] },],
         "setFullImage": [{ type: Input, args: ['fullImage',] },],
         "setZoomMode": [{ type: Input, args: ['zoomMode',] },],
