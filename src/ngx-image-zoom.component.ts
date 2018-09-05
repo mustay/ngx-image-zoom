@@ -60,12 +60,18 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     private thumbImageLoaded = false;
     private fullImageLoaded = false;
     private zoomIcons = false;
+    private screenSize = 'desktop';
 
     private latestMouseLeft: number;
     private latestMouseTop: number;
     private scrollParent: Element;
 
     constructor(private renderer: Renderer2) {
+    }
+
+    @Input('screenSize')
+    public set setScreenSize(screenSize: string) {
+        this.screenSize = screenSize;
     }
    
     @Input('thumbImage')

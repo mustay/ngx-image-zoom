@@ -2,6 +2,13 @@
 <!-- <div #zoomContainer class="ngxImageZoomContainer"
      width="100%" height="100%"> -->
 
+    <ng-container *ngIf="screenSize === 'mobile'">
+        <pinch-zoom>
+            <img src="{{ thumbImage }}">
+        </pinch-zoom>
+    </ng-container>
+
+    <ng-container *ngIf="screenSize === 'desktop'">
     <img #imageThumbnail
          [ngClass]="{ 'ngxImageZoomThumbnail--hover': zoomIcons === false }"
          class="ngxImageZoomThumbnail"
@@ -33,4 +40,5 @@
              [style.height.px]="this.magnifiedHeight"
         />
     </div>
+    </ng-container>
 </div>

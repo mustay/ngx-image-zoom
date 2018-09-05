@@ -53,9 +53,7 @@
     cursor: default;
 }
 
-.ngxZoomedIn {
-    cursor: zoom-out;
-}
+
 
 .ngxImageZoomFullContainer {
     position: absolute;
