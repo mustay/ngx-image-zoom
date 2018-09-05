@@ -159,11 +159,9 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
         }
         if (this.enableScrollZoom) {
             // Chrome: 'mousewheel', Firefox: 'DOMMouseScroll', IE: 'onmousewheel'
-            if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
-                this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', (event) => this.onMouseWheel(event));
-                this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', (event) => this.onMouseWheel(event));
-                this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', (event) => this.onMouseWheel(event));
-            }
+            this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', (event) => this.onMouseWheel(event));
+            this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', (event) => this.onMouseWheel(event));
+            this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', (event) => this.onMouseWheel(event));
         }
         if (this.enableLens && this.circularLens) {
             this.lensBorderRadius = this.lensWidth / 2;
@@ -227,22 +225,25 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
      * Mouse wheel event
      */
     private onMouseWheel(event: any) {
-        event = window.event || event; // old IE
-        const direction = Math.max(Math.min((event.wheelDelta || -event.detail), 1), -1);
-        if (direction > 0) {
-            // up
-            this.setMagnification = Math.min(this.magnification + this.scrollStepSize, this.maxZoomRatio);
-        } else {
-            // down
-            this.setMagnification = Math.max(this.magnification - this.scrollStepSize, this.minZoomRatio);
-        }
-        this.calculateRatio();
-        this.calculateZoomPosition(event);
+        if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
 
-        // Prevent scrolling on page.
-        event.returnValue = false; // IE
-        if (event.preventDefault) {
-            event.preventDefault(); // Chrome & FF
+            event = window.event || event; // old IE
+            const direction = Math.max(Math.min((event.wheelDelta || -event.detail), 1), -1);
+            if (direction > 0) {
+                // up
+                this.setMagnification = Math.min(this.magnification + this.scrollStepSize, this.maxZoomRatio);
+            } else {
+                // down
+                this.setMagnification = Math.max(this.magnification - this.scrollStepSize, this.minZoomRatio);
+            }
+            this.calculateRatio();
+            this.calculateZoomPosition(event);
+
+            // Prevent scrolling on page.
+            event.returnValue = false; // IE
+            if (event.preventDefault) {
+                event.preventDefault(); // Chrome & FF
+            }
         }
     }
 

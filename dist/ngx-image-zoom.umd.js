@@ -213,11 +213,9 @@ var NgxImageZoomComponent = (function () {
         }
         if (this.enableScrollZoom) {
             // Chrome: 'mousewheel', Firefox: 'DOMMouseScroll', IE: 'onmousewheel'
-            if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
-                this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', function (event) { return _this.onMouseWheel(event); });
-                this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', function (event) { return _this.onMouseWheel(event); });
-                this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', function (event) { return _this.onMouseWheel(event); });
-            }
+            this.renderer.listen(this.zoomContainer.nativeElement, 'mousewheel', function (event) { return _this.onMouseWheel(event); });
+            this.renderer.listen(this.zoomContainer.nativeElement, 'DOMMouseScroll', function (event) { return _this.onMouseWheel(event); });
+            this.renderer.listen(this.zoomContainer.nativeElement, 'onmousewheel', function (event) { return _this.onMouseWheel(event); });
         }
         if (this.enableLens && this.circularLens) {
             this.lensBorderRadius = this.lensWidth / 2;
@@ -320,22 +318,24 @@ var NgxImageZoomComponent = (function () {
      * @return {?}
      */
     function (event) {
-        event = window.event || event; // old IE
-        var /** @type {?} */ direction = Math.max(Math.min((event.wheelDelta || -event.detail), 1), -1);
-        if (direction > 0) {
-            // up
-            this.setMagnification = Math.min(this.magnification + this.scrollStepSize, this.maxZoomRatio);
-        }
-        else {
-            // down
-            this.setMagnification = Math.max(this.magnification - this.scrollStepSize, this.minZoomRatio);
-        }
-        this.calculateRatio();
-        this.calculateZoomPosition(event);
-        // Prevent scrolling on page.
-        event.returnValue = false; // IE
-        if (event.preventDefault) {
-            event.preventDefault(); // Chrome & FF
+        if ((this.zoomingEnabled || this.zoomFrozen) || this.zoomMode !== 'hover-freeze') {
+            event = window.event || event; // old IE
+            var /** @type {?} */ direction = Math.max(Math.min((event.wheelDelta || -event.detail), 1), -1);
+            if (direction > 0) {
+                // up
+                this.setMagnification = Math.min(this.magnification + this.scrollStepSize, this.maxZoomRatio);
+            }
+            else {
+                // down
+                this.setMagnification = Math.max(this.magnification - this.scrollStepSize, this.minZoomRatio);
+            }
+            this.calculateRatio();
+            this.calculateZoomPosition(event);
+            // Prevent scrolling on page.
+            event.returnValue = false; // IE
+            if (event.preventDefault) {
+                event.preventDefault(); // Chrome & FF
+            }
         }
     };
     /**
