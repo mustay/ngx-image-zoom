@@ -59,6 +59,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     private isReady = false;
     private thumbImageLoaded = false;
     private fullImageLoaded = false;
+    private zoomIcons = false;
 
     private latestMouseLeft: number;
     private latestMouseTop: number;
@@ -66,7 +67,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
     constructor(private renderer: Renderer2) {
     }
-
+   
     @Input('thumbImage')
     public set setThumbImage(thumbImage: string) {
         this.thumbImageLoaded = false;
@@ -85,6 +86,12 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     public set setZoomMode(zoomMode: string) {
         if (NgxImageZoomComponent.validZoomModes.some(m => m === zoomMode)) {
             this.zoomMode = zoomMode;
+
+            if (this.zoomMode === 'hover') {
+                this.zoomIcons = false;
+            } else if (this.zoomMode === 'hover-freeze') {
+                this.zoomIcons = true;
+            }
         }
     }
 

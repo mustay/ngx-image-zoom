@@ -46,6 +46,7 @@ export declare class NgxImageZoomComponent implements OnInit, OnChanges, AfterVi
     private isReady;
     private thumbImageLoaded;
     private fullImageLoaded;
+    private zoomIcons;
     private latestMouseLeft;
     private latestMouseTop;
     private scrollParent;

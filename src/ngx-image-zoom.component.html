@@ -1,12 +1,20 @@
-<div #zoomContainer class="ngxImageZoomContainer"
-     [style.width.px]="this.thumbWidth">
+<div #zoomContainer class="ngxImageZoomContainer" [style.width.px]="this.thumbWidth">
 <!-- <div #zoomContainer class="ngxImageZoomContainer"
      width="100%" height="100%"> -->
 
-    <img #imageThumbnail class="ngxImageZoomThumbnail" src="{{ thumbImage }}" width="100%" height="100%"
+    <img #imageThumbnail
+         [ngClass]="{ 'ngxImageZoomThumbnail--hover': zoomIcons === false }"
+         class="ngxImageZoomThumbnail"
+         src="{{ thumbImage }}" 
+         width="100%" 
+         height="100%"
          (load)="onThumbImageLoaded()"/>
 
-    <div [ngClass]="{'ngxImageZoomFullContainer': true, 'ngxImageZoomLensEnabled': this.enableLens}"
+    <div [ngClass]="{
+            'ngxImageZoomFullContainer': true, 
+            'ngxImageZoomLensEnabled': this.enableLens,
+            ''
+         }"
          [style.display]="this.display"
          [style.top.px]="this.lensTop"
          [style.left.px]="this.lensLeft"
@@ -14,7 +22,10 @@
          [style.height.px]="this.lensHeight"
          [style.border-radius.px]="this.lensBorderRadius"
     >
-        <img #fullSizeImage class="ngxImageZoomFull" src="{{ fullImage }}"
+        <img #fullSizeImage
+             [ngClass]="{ 'ngxImageZoomFull--hover': zoomIcons === false }"
+             class="ngxImageZoomFull" 
+             src="{{ fullImage }}"
              (load)="onFullImageLoaded()"
              [style.display]="this.display"
              [style.top.px]="this.fullImageTop"

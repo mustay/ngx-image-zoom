@@ -37,11 +37,23 @@
     cursor: zoom-in!important;
 }
 
+.ngxImageZoomThumbnail--hover {
+    cursor: default;
+}
+
 .ngxImageZoomFull {
     position: absolute;
     max-width: none;
     max-height: none;
     display: none;
+    cursor: zoom-out;
+}
+
+.ngxImageZoomFull--hover {
+    cursor: default;
+}
+
+.ngxZoomedIn {
     cursor: zoom-out;
 }
 
