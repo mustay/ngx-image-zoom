@@ -34,8 +34,8 @@
     },
     "devDependencies": {
         "@angular/common": "^5.0.0",
-        "@angular/compiler": "^5.0.0",
-        "@angular/compiler-cli": "^5.0.0",
+        "@angular/compiler": "^5.2.11",
+        "@angular/compiler-cli": "^5.2.11",
         "@angular/core": "^5.0.0",
         "@angular/platform-browser": "^5.0.0",
         "@angular/platform-browser-dynamic": "^5.0.0",
@@ -69,12 +69,12 @@
         "systemjs": "^0.20.12",
         "ts-node": "~3.2.0",
         "tslint": "~5.7.0",
-        "typescript": "~2.4.2",
+        "typescript": "^2.4.2",
+        "uglify-js": "^3.4.9",
         "zone.js": "^0.8.14"
     },
     "engines": {
         "node": ">=6.0.0"
     },
-    "dependencies": {
-    }
+    "dependencies": {}
 }
